@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.link {
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.5px;
+}
+
+#Red {fill: red;}
+.link.Red {stroke: red;}
+
+#Blue {fill: blue;}
+.link.Blue {stroke: blue;}
+
+#Orange {fill: orange;}
+.link.Orange {stroke: orange;}
+
+#Green {fill: green;}
+.link.Green {stroke: green;}
+
+#Fuchsia {fill: fuchsia;}
+.link.Fuchsia {stroke: fuchsia;}
+
+#Aqua {fill: aqua;}
+.link.Aqua {stroke: aqua;}
+
+#Teal {fill: teal;}
+.link.Teal {stroke: teal;}
+
+#Navy {fill: navy;}
+.link.Navy {stroke: navy;}
+
+#Purple {fill: purple;}
+.link.Purple {stroke: purple;}
+
+
+
+
+circle {
+  fill: #ccc;
+  stroke: #333;
+  stroke-width: 1.5px;
+  cursor: pointer;
+}
+
+text {
+  font: 10px sans-serif;
+  pointer-events: none;
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+}
+
+</style>
+<body>
+
+<h1>English Comprehension 3</h1>
+<title>English Comprehenion 3</title>
+
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+
+var links = [
+  // English Class
+  {source: "English Computation 3",    target: "English",  type: "Blue"},
+
+  // English Computation 3
+  {source: "Critical Thinking",                 target: "English Computation 3",  type: "Blue"}, //1
+  {source: "Text Analysis",                     target: "English Computation 3",  type: "Blue"}, //2
+  {source: "Reading and Communication Skills",  target: "English Computation 3",  type: "Blue"}, //3
+];
+
+var nodes = {};
+
+// Compute the distinct nodes from the links.
+links.forEach(function(link) {
+  link.source = nodes[link.source] || (nodes[link.source] = {name: link.source});
+  link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
+});
+
+var width =  1000,
+    height = 600;
+
+var force = d3.layout.force()
+    .nodes(d3.values(nodes))
+    .links(links)
+    .size([width, height])
+    .linkDistance(200)    
+    .charge(-2000)
+    .on("tick", tick)
+    .start();
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+// Per-type markers, as they don't inherit styles.
+svg.append("defs").selectAll("marker")
+    .data(["suit", "Red", "Blue", "Orange" , "Green" , "Fuchsia", "Aqua", "Teal", "Navy", "Purple"])
+  .enter().append("marker")
+    .attr("id", function(d) { return d; })
+    .attr("viewBox", "0 -5 10 10")
+    .attr("refX", 15)
+    .attr("refY", -1.5)
+    .attr("markerWidth", 6)
+    .attr("markerHeight", 6)
+    .attr("orient", "auto")
+  .append("path")
+    .attr("d", "M0,-5L10,0L0,5");
+
+var path = svg.append("g").selectAll("path")
+    .data(force.links())
+  .enter().append("path")
+    .attr("class", function(d) { return "link " + d.type; })
+    .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
+
+var circle = svg.append("g").selectAll("circle")
+    .data(force.nodes())
+  .enter().append("circle")
+    .attr("r", 6)
+    .call(force.drag);
+
+var text = svg.append("g").selectAll("text")
+    .data(force.nodes())
+  .enter().append("text")
+    .attr("x", 8)
+    .attr("y", ".31em")
+    .text(function(d) { return d.name; });
+
+// Use elliptical arc path segments to doubly-encode directionality.
+function tick() {
+  path.attr("d", linkArc);
+  circle.attr("transform", transform);
+  text.attr("transform", transform);
+}
+
+function linkArc(d) {
+  var dx = d.target.x - d.source.x,
+      dy = d.target.y - d.source.y,
+      dr = Math.sqrt(dx * dx + dy * dy);
+  return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,1 " + d.target.x + "," + d.target.y;
+}
+
+function transform(d) {
+  return "translate(" + d.x + "," + d.y + ")";
+}
+
+
+/*<br></br>
+<input type="button"  onClick="window.location='Home.html';"          value="Home" style="display:inline-block;">
+*/
+
+</script>
+
+
+
+
+<br></br>
+<a href="index.html"><button class="button">Home</button></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
