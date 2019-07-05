@@ -33,7 +33,7 @@ then click ```ENTER```
 
 9. After it's done, you should see ```live-server@(numbers)``` that will let you know it has been successfully installed. 
 
-10. Go to the path where ECE_Degree folder is located: cd /____/ECE_Degree-master/ECE, or type ```cd ``` and drag and drop the ```ECE``` folder onto the terminal window. 
+10. Go to the path where ECE_Degree folder is located: cd /____/ECE_Degree-master/ECE, or type ```cd ``` and drag and drop the ```ECE``` folder onto the terminal window. The folder's address should autocomplete. After it's been autocompleted, hit ```ENTER``` . 
 
 11. Type ```live-server``` and click ```ENTER```. Your main browser will now display the program.
      
