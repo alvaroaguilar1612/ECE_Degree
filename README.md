@@ -15,27 +15,14 @@ For best results, open the file in Chrome.
 
 4. Enter ```node -v``` in the Terminal to verify that Node.js is installed correctly and to see the version of Node.js that was installed. Example: v10.16.0
 
-5. Next, type ```npm install -g live-server``` and then click ```ENTER```
+5. Next, type ```sudo npm install -g live-server``` and then click ```ENTER```
 
-6. Type  ```sudo npm cache clean --force``` and then click ```ENTER```. It will ask for the administrator password. Type it in. You won't see the key strokes, but it is being typed. 
-     
-7. Type
-```bash
-     sudo npm update -g ionic
-```
-then click ```ENTER```
 
- 8. Type
-    ```bash
-    sudo npm install -g live-server
-    ```
-    then click ```ENTER```
+6. After it's done, you should see ```live-server@(numbers)``` that will let you know it has been successfully installed. 
 
-9. After it's done, you should see ```live-server@(numbers)``` that will let you know it has been successfully installed. 
+7. Go to the path where ECE_Degree folder is located: cd /____/ECE_Degree-master/ECE, or type ```cd ``` and drag and drop the ```ECE``` folder onto the terminal window. The folder's address should autocomplete. After it's been autocompleted, hit ```ENTER``` . 
 
-10. Go to the path where ECE_Degree folder is located: cd /____/ECE_Degree-master/ECE, or type ```cd ``` and drag and drop the ```ECE``` folder onto the terminal window. The folder's address should autocomplete. After it's been autocompleted, hit ```ENTER``` . 
-
-11. Type ```live-server``` and click ```ENTER```. Your main browser will now display the program.
+8. Type ```live-server``` and click ```ENTER```. Your main browser will now display the program.
      
  The installation should now be complete.     
      
